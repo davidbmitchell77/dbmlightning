@@ -1,0 +1,13 @@
+<aura:component>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:attribute name="accounts" type="Account[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <div style="height: 300px">
+        <lightning:datatable
+                keyField="Id"
+                data="{!v.accounts}"
+                columns="{!v.columns}"
+                hideCheckboxColumn="false">
+        </lightning:datatable>
+    </div>
+</aura:component>
