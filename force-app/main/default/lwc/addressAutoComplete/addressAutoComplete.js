@@ -13,9 +13,7 @@ export default class AddressAutoComplete extends LightningElement {
 
     handleSuccess(event) {
         console.info('Updated record id: ', event.detail.id);
-        this.dispatchEvent(
-            new ShowToastEvent({ title: 'Successful Record Update', message: 'Record updated successfully.', variant: 'success'})
-        );
+        this.showToast('Success!', 'Record updated successfully.', 'success');
     }
 
     handleSubmit(event) {
@@ -36,7 +34,7 @@ export default class AddressAutoComplete extends LightningElement {
             fields.MailingCountry = this.strCountry;
             fields.MailingPostalCode = this.strPostalCode;
         }
-        this.template.querySelector( 'lightning-record-edit-form' ).submit( fields );
+        this.template.querySelector('lightning-record-edit-form').submit(fields);
     }
 
     addressInputChange(event) {
@@ -45,5 +43,11 @@ export default class AddressAutoComplete extends LightningElement {
         this.strState = event.target.province;
         this.strCountry = event.target.country;
         this.strPostalCode = event.target.postalCode;
+    }
+
+    showToast(title, message, variant) {
+        this.dispatchEvent(
+            new ShowToastEvent({ title: title, message: message, variant: (variant || 'info') })
+        );
     }
 }
