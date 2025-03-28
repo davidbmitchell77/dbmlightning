@@ -1,0 +1,14 @@
+<aura:component controller="lightningSearchController">
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:attribute name="searchString" type="String" default="" />
+    <aura:attribute name="theMap" type="Map" />
+
+    <lightning:card title="Accounts">
+        <c:searchResultsAccounts accounts="{!v.theMap.accounts}"/>
+    </lightning:card>
+
+    <lightning:card title="Contacts">
+        <c:searchResultsContacts contacts="{!v.theMap.contacts}"/>
+    </lightning:card>
+
+</aura:component>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ACCOUNT_NAME_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account name is required.</shortDescription>
+        <value>Account name is required.</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_PHONE_NUMBER_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account phone number is required.</shortDescription>
+        <value>Account phone number is required.</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_RECORD_DATA_IS_NOT_VALID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account record data is not valid.</shortDescription>
+        <value>Account record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>CAMPAIGN_DESCRIPTION_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign description is required.</shortDescription>
+        <value>Campaign description is required.</value>
+    </labels>
+    <labels>
+        <fullName>CAMPAIGN_MEMBER_RECORD_DATA_IS_NOT_VALID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Member record data is not valid.</shortDescription>
+        <value>Campaign Member record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>CAMPAIGN_MEMBER_STATUS_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Member status is required.</shortDescription>
+        <value>Campaign Member status is required.</value>
+    </labels>
+    <labels>
+        <fullName>CAMPAIGN_NAME_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign name is required.</shortDescription>
+        <value>Campaign name is required.</value>
+    </labels>
+    <labels>
+        <fullName>CAMPAIGN_RECORD_DATA_IS_NOT_VALID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign record data is not valid.</shortDescription>
+        <value>Campaign record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>CASE_NUMBER_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case number is required.</shortDescription>
+        <value>Case number is required.</value>
+    </labels>
+    <labels>
+        <fullName>CASE_RECORD_DATA_IS_NOT_VALID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case record data is not valid.</shortDescription>
+        <value>Case record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>CASE_SUBJECT_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case subject is required.</shortDescription>
+        <value>Case subject is required.</value>
+    </labels>
+    <labels>
+        <fullName>CONTACT_LAST_NAME_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact last name is required.</shortDescription>
+        <value>Contact last name is required.</value>
+    </labels>
+    <labels>
+        <fullName>CONTACT_PHONE_NUMBER_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact phone number is required.</shortDescription>
+        <value>Contact phone number is required.</value>
+    </labels>
+    <labels>
+        <fullName>CONTACT_RECORD_DATA_IS_NOT_VALID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact record data is not valid.</shortDescription>
+        <value>Contact record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>CUSTOM_OBJECT_A_NAME_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Object &apos;A&apos; Name is required.</shortDescription>
+        <value>Custom Object &apos;A&apos; Name is required.</value>
+    </labels>
+    <labels>
+        <fullName>CUSTOM_OBJECT_A_RECORD_DATA_IS_NOT_VAILD</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Object A record data is not valid.</shortDescription>
+        <value>Custom Object A record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>CUSTOM_OBJECT_B_NAME_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Object &apos;B&apos; Name is required.</shortDescription>
+        <value>Custom Object &apos;B&apos; Name is required.</value>
+    </labels>
+    <labels>
+        <fullName>CUSTOM_OBJECT_B_RECORD_DATA_IS_NOT_VALID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Object B record data is not valid.</shortDescription>
+        <value>Custom Object B record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>LEAD_LAST_NAME_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead last name is required.</shortDescription>
+        <value>Lead last name is required.</value>
+    </labels>
+    <labels>
+        <fullName>LEAD_RECORD_DATA_IS_NOT_VALID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead record data is not valid.</shortDescription>
+        <value>Lead record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>OPPORTUNITY_LINE_ITEM_QUANTITY_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity line item quantity is required.</shortDescription>
+        <value>Opportunity line item quantity is required.</value>
+    </labels>
+    <labels>
+        <fullName>OPPORTUNITY_LINE_ITEM_RECORD_DATA_IS_NOT_VALID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity line item record data is not valid.</shortDescription>
+        <value>Opportunity line item record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>OPPORTUNITY_NAME_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity name is required.</shortDescription>
+        <value>Opportunity name is required.</value>
+    </labels>
+    <labels>
+        <fullName>OPPORTUNITY_RECORD_DATA_IS_NOT_VALID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity record data is not valid.</shortDescription>
+        <value>Opportunity record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>QUOTE_ITEM_PRODUCT_ID_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote item product Id is required.</shortDescription>
+        <value>Quote item product Id is required.</value>
+    </labels>
+    <labels>
+        <fullName>QUOTE_ITEM_UNIT_PRICE_IS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote item unit price is required.</shortDescription>
+        <value>Quote item unit price is required.</value>
+    </labels>
+    <labels>
+        <fullName>foobar</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>foobar</shortDescription>
+        <value>foobar</value>
+    </labels>
+</CustomLabels>

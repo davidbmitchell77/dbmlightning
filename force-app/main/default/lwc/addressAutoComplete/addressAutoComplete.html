@@ -1,0 +1,19 @@
+<template>
+    <div class=”slds-var-m-around_medium>
+        <lightning-record-edit-form record-id={recordId} object-api-name={objectAPIName} onsuccess={handleSuccess} onsubmit={handleSubmit}>
+                <div class="slds-var-m-around_medium">
+                    <lightning-input-address
+                        address-label="Address"
+                        street-label="Street"
+                        city-label="City"
+                        province-label="State/Province"
+                        postal-code-label="Postal Code"
+                        country-label="Country"
+                        onchange={addressInputChange}
+                        show-address-lookup
+                    ></lightning-input-address>
+                    <lightning-button class=”slds-m-top_small” type=”submit” label="Update Address"></lightning-button>
+                </div>
+        </lightning-record-edit-form>
+    </div>
+</template>
