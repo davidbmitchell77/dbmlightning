@@ -1,0 +1,17 @@
+:host {
+    --my-color-green: green;
+    --my-color-orange: orange;
+    --my-color-pink: pink;
+}
+.foobar {
+    --slds-c-button-brand-color-background: var(--lwc-brandBackgroundPrimary)
+}
+.green {
+    --slds-c-button-brand-color-background: var(--my-color-green);
+}
+.orange {
+    --slds-c-button-brand-color-background: var(--my-color-orange);
+}
+.pink {
+    --slds-c-button-brand-color-background: var(--my-color-pink);
+}
