@@ -4,7 +4,7 @@
     --my-color-pink: pink;
 }
 .foobar {
-    --slds-c-button-brand-color-background: var(--lwc-brandBackgroundPrimary)
+    --slds-c-button-brand-color-background: var(--lwc-brandBackgroundPrimary);
 }
 .green {
     --slds-c-button-brand-color-background: var(--my-color-green);
