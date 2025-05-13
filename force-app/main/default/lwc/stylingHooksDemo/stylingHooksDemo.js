@@ -21,7 +21,7 @@ export default class StylingHooksDemo extends LightningElement {
                 break;
             default:
                 this.className = 'foobar';
-                this.stylingHook = '--slds-c-button-brand-color-background: var(--lwc-brandBackgroundPrimary);'
+                this.stylingHook = '--slds-c-button-brand-color-background: var(--lwc-brandBackgroundPrimary)';
                 this.i = 0;
         }
     }
