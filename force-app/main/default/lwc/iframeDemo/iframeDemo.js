@@ -6,7 +6,7 @@ export default class IframeDemo extends LightningElement {
     iframeWidth = 1210;
 
     get lightningCardTitle() {
-        return `iFrame Demo (${new URL(this.remoteSiteUrl.replace('www.', '')).hostname})`;
+        return `iFrame Demo (${new URL(this.remoteSiteUrl).hostname.replace('www.', '')})`;
     }
 
     get remoteSites() {
