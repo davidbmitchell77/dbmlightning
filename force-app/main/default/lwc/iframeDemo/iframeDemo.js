@@ -11,14 +11,14 @@ export default class IframeDemo extends LightningElement {
 
     get remoteSites() {
         return [
-            { label: 'Dow Jones Industrial Average', value: 'https://www.nyse.com/quote/index/DJI' },
-            { label: 'FourKites',                    value: 'https://fourkites.com'                },
-            { label: 'IP Location',                  value: 'https://iplocation.com'               },
-            { label: 'JSON Placeholder',             value: 'https://jsonplaceholder.typicode.com' },
-            { label: 'MapQuest ',                    value: 'https://mapquest.com'                 },
-            { label: 'Test Your Speed ',             value: 'https://speed.measurementlab.net'     },
-            { label: 'Weather',                      value: 'https://ventusky.com'                 },
-            { label: 'Wikipedia',                    value: 'https://en.wikipedia.org'             }
+            { label: 'Dow Jones Industrial Average', value: 'https://www.nyse.com/quote/index/DJI'           },
+            { label: 'Flight Status',                value: 'https://beta.flightaware.com/live/airport/KSAN' },
+            { label: 'FourKites',                    value: 'https://fourkites.com'                          },
+            { label: 'IP Location',                  value: 'https://iplocation.com'                         },
+            { label: 'MapQuest ',                    value: 'https://mapquest.com'                           },
+            { label: 'Test Your Speed ',             value: 'https://speed.measurementlab.net'               },
+            { label: 'Weather',                      value: 'https://ventusky.com'                           },
+            { label: 'Wikipedia',                    value: 'https://en.wikipedia.org'                       }
         ];
     }
 
