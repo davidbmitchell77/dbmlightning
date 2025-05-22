@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title={lightningCardTitle} icon-name="custom:custom59">
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox class="slds-var-m-bottom_small" label="Website" value={value} placeholder="Select remote website" options={remoteSites} onchange={handleChange} style="width:25rem"></lightning-combobox>
+            <iframe src={remoteSiteUrl} height={iframeHeight} width={iframeWidth}></iframe>
+        </div>
+    </lightning-card>
+</template>
