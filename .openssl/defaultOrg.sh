@@ -9,4 +9,3 @@ cd $ssldir
 echo "sf auth:jwt:grant --jwt-key-file $jwtkeyfile --client-id $clientid --username $username --alias $alias --instance-url $url --set-default --json"
 sf auth:jwt:grant --jwt-key-file $jwtkeyfile --client-id $clientid --username $username --alias $alias --instance-url $url --set-default --json
 cd ..
-
