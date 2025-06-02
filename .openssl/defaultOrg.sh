@@ -6,6 +6,6 @@ username=davidbmitchell77@outlook.com.lightning
 alias=dbmlightning-dev-ed.my.salesforce.com
 url=https://login.salesforce.com
 cd $ssldir
-echo "sf auth:jwt:grant --jwt-key-file $jwtkeyfile --client-id $clientid --username $username --alias $alias --instance-url $url --set-default --json"
-sf auth:jwt:grant --jwt-key-file $jwtkeyfile --client-id $clientid --username $username --alias $alias --instance-url $url --set-default --json
+sf org:login:jwt --jwt-key-file $jwtkeyfile --client-id $clientid --username $username --alias $alias --instance-url $url --set-default-dev-hub --set-default
+sf org list --all
 cd ..
