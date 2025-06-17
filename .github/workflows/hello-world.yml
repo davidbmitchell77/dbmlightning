@@ -1,9 +1,9 @@
 ---
 name: hello-world
 on: push
-branches:
-  - develop
-  - main
+  branches:
+    - develop
+    - main
 jobs:
   my-job:
     runs-on: ubuntu-latest
