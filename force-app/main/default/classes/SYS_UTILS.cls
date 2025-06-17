@@ -79,6 +79,7 @@ public class SYS_UTILS {
     public class LEAD_TRIGGER_EXCEPTION                   extends Exception {}
     public class OPPORTUNITY_TRIGGER_EXCEPTION            extends Exception {}
     public class OPPORTUNITY_LINE_ITEM_TRIGGER_EXCEPTION  extends Exception {}
+    public class QUOTE_TRIGGER_EXCEPTION                  extends Exception {}
     public class APEX_EXCEPTION                           extends Exception {}
     public class DML_EXCEPTION                            extends Exception {}
     public class SYS_EXCEPTION                            extends Exception {}
