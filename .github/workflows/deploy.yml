@@ -1,0 +1,41 @@
+name: Salesforce CI/CD Pipeline
+'on':
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  validate-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Install Salesforce CLI
+        run: npm install sfdx-cli -g
+      - name: Authorize Salesforce Org
+        run: >-
+          sfdx force:auth:sfdxurl:store -f ${{ secrets.SFDX_AUTH_URL }}
+          --set-default-dev-hub --alias my-salesforce-org
+      - name: Validate Deployment
+        run: >-
+          sfdx force:source:deploy -p force-app/main/default -c -u
+          my-salesforce-org
+  deploy-to-production:
+    needs: validate-deployment
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Install Salesforce CLI
+        run: npm install sfdx-cli -g
+      - name: Authorize Salesforce Org
+        run: >-
+          sfdx force:auth:sfdxurl:store -f ${{ secrets.SFDX_AUTH_URL }}
+          --set-default-dev-hub --alias my-salesforce-org
+      - name: Deploy to Production
+        run: >-
+          sfdx force:source:deploy -p force-app/main/default -u
+          my-salesforce-org
