@@ -17,12 +17,20 @@ jobs:
         run: npm install sfdx-cli -g
       - name: Authorize Salesforce Org
         run: >-
-          sfdx force:auth:sfdxurl:store -f ${{ secrets.SFDX_AUTH_URL }}
-          --set-default-dev-hub --alias my-salesforce-org
+      - name: Authenticate to Salesforce (JWT)
+        run: |
+          echo "${{ secrets.SF_JWT_KEY }}" > server.key # Saves the JWT key from secrets into a file
+          sf org login jwt \ # Logs into Salesforce using JWT-based authentication
+            --client-id ${{ secrets.SF_CONSUMER_KEY }} \ # Client ID of the connected app
+            --jwt-key-file server.key \ # Path to the JWT key file
+            --username ${{ secrets.SF_USERNAME }} \ # Salesforce username to authenticate
+            --instance-url ${{ secrets.SF_SERVER_URL }} \ # Salesforce instance URL
+            --alias SFDC_v1 \ # Assigns an alias to the authenticated org
+            --set-default # Sets this org as the default for subsequent CLI commands
       - name: Validate Deployment
         run: >-
           sfdx force:source:deploy -p force-app/main/default -c -u
-          my-salesforce-org
+          dbmlightning-dev-ed.my.salesforce.com
   deploy-to-production:
     needs: validate-deployment
     runs-on: ubuntu-latest
