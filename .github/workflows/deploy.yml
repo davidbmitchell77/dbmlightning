@@ -5,6 +5,7 @@ name: Salesforce CI/CD Pipeline
       - main
   push:
     branches:
+      - develop
       - main
 jobs:
   validate-deployment:
