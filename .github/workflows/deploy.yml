@@ -23,8 +23,7 @@ jobs:
           cat server.key
           sf org login jwt --client-id ${{ secrets.SF_CONSUMER_KEY }} --jwt-key-file server.key --username ${{ secrets.SF_USERNAME }} --instance-url ${{ secrets.SF_SERVER_URL }} --alias dbmlightning-dev-ed.my.salesforce.com --set-default
       - name: Validate Deployment
-        run: >-
-          sf force:source:deploy -p force-app/main/default -c -u dbmlightning-dev-ed.my.salesforce.com
+        run: sf project deploy validate -d force-app/main/default -o dbmlightning-dev-ed.my.salesforce.com --wait 10
   deploy-to-production:
     needs: validate-deployment
     runs-on: ubuntu-latest
@@ -39,5 +38,4 @@ jobs:
           sf org login jwt --client-id ${{ secrets.SF_CONSUMER_KEY }} --jwt-key-file server.key --username ${{ secrets.SF_USERNAME }} --instance-url ${{ secrets.SF_SERVER_URL }} --alias dbmlightning-dev-ed.my.salesforce.com --set-default-dev-hub
       - name: Deploy to Production
         run: >-
-          sf force:source:deploy -p force-app/main/default -u
-          dbmlightning-dev-ed.my.salesforce.com
+          sf project deploy start -d force-app/main/default -o dbmlightning-dev-ed.my.salesforce.com
