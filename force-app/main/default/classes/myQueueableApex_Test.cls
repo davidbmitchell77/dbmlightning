@@ -12,6 +12,8 @@ private class myQueueableApex_Test
     {
         Campaign c = new Campaign();
         c.Name = 'Test Campaign 1';
+        c.Description = 'This is a test marketing capaign.';
+        c.Marketing_Channel__c = 'SMS';';
         c.StartDate = Date.newInstance(2021, 01, 01);
         c.EndDate = c.StartDate.addYears(1);
         c.IsActive = true;
