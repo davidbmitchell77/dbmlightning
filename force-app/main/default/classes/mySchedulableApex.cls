@@ -60,6 +60,7 @@ global class mySchedulableApex implements System.Schedulable, Database.Batchable
             CampaignMember cm = new CampaignMember();
             cm.CampaignId = campaignId;
             cm.LeadId = l.Id;
+            cm.Status = 'Planned';
             campaignMembers.add(cm);
         }
 
