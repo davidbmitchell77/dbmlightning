@@ -4,7 +4,7 @@ public class veritoneLeads_Test
     @isTest
     private static void testMethod1()
     {
-        Campaign c = new Campaign(Name = 'Test Campaign');
+        Campaign c = new Campaign(Name = 'Test Campaign', Description = 'This is a test marketing campaign.');
         insert c;
 
         veritoneLeads2.requestHeader h = new veritoneLeads2.requestHeader();
@@ -49,7 +49,7 @@ public class veritoneLeads_Test
         msgBody.requestHeader = h;
         msgBody.data = dlist;
         String jsonMsg = System.JSON.serialize(msgBody);
-        
+
         RestRequest req = new RestRequest();
         RestResponse res = new RestResponse();
         RestContext.request = req;

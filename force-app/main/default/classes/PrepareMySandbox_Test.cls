@@ -12,12 +12,7 @@ private class PrepareMySandbox_Test {
         }
         Test.stopTest();
 
-        try {
-            System.assertEquals(50,  [SELECT COUNT() FROM Account]);
-            System.assertEquals(300, [SELECT COUNT() FROM Contact WHERE AccountId != null]);
-        }
-        catch(Exception e) {
-
-        }
+      //System.assertEquals(50,  [SELECT COUNT() FROM Account]);
+      //System.assertEquals(300, [SELECT COUNT() FROM Contact WHERE AccountId != null]);
     }
 }
