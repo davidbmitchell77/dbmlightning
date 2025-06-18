@@ -72,7 +72,7 @@ public with sharing class AccountController {
                   FROM Contact
                   WHERE AccountId = :accountId
                   WITH SECURITY_ENFORCED
-                 LIMIT :cacheSize
+                 LIMIT 200
         ];
     }
 }
