@@ -60,4 +60,19 @@ public with sharing class AccountController {
         }
         return results;
     }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Contact> getContacts(String accountId) {
+        return [SELECT Id,
+                       Name,
+                       Title,
+                       Email,
+                       AccountId,
+                       Account.Name
+                  FROM Contact
+                  WHERE AccountId = :accountId
+                  WITH SECURITY_ENFORCED
+                 LIMIT 200
+        ];
+    }
 }

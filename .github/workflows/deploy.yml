@@ -1,0 +1,42 @@
+name: Salesforce CI/CD Pipeline
+'on':
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - develop
+      - main
+  push:
+    branches:
+      - develop
+      - main
+jobs:
+  validate-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Install Salesforce CLI
+        run: npm install @salesforce/cli --global
+      - name: Authenticate to Salesforce (JWT)
+        run: |
+          echo "${{ secrets.SF_JWT_KEY }}" >${{ secrets.JWT_KEY_FILE }}
+          sf org login jwt --client-id ${{ secrets.SF_CONSUMER_KEY }} --jwt-key-file ${{ secrets.JWT_KEY_FILE }} --username ${{ secrets.SF_USERNAME }} --instance-url ${{ secrets.SF_SERVER_URL }} --alias ${{ vars.SF_ORG_ALIAS }} --set-default
+          rm ${{ secrets.JWT_KEY_FILE }}
+      - name: Validate Deployment
+        run: sf project deploy validate --source-dir ${{ vars.SF_SOURCE_DIR }} --target-org ${{ vars.SF_ORG_ALIAS }} --wait ${{ vars.SF_WAIT_TIME }} --test-level RunSpecifiedTests --tests "SYS_UTILS_TEST"
+  deploy-to-production:
+    needs: validate-deployment
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Install Salesforce CLI
+        run:  npm install @salesforce/cli --global
+      - name: Authenticate to Salesforce (JWT)
+        run: |
+          echo "${{ secrets.SF_JWT_KEY }}" >${{ secrets.JWT_KEY_FILE }}
+          sf org login jwt --client-id ${{ secrets.SF_CONSUMER_KEY }} --jwt-key-file ${{ secrets.JWT_KEY_FILE }} --username ${{ secrets.SF_USERNAME }} --instance-url ${{ secrets.SF_SERVER_URL }} --alias ${{ vars.SF_ORG_ALIAS }} --set-default-dev-hub
+          rm ${{ secrets.JWT_KEY_FILE }}
+      - name: Deploy to Production
+        run: sf project deploy start --source-dir ${{ vars.SF_SOURCE_DIR }} --target-org ${{ vars.SF_ORG_ALIAS }} --wait ${{ vars.SF_WAIT_TIME }}
