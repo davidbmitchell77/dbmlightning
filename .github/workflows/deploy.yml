@@ -21,6 +21,7 @@ jobs:
         run: |
           echo "${{ secrets.SF_JWT_KEY }}" >${{ secrets.JWT_KEY_FILE }}
           sf org login jwt --client-id ${{ secrets.SF_CONSUMER_KEY }} --jwt-key-file ${{ secrets.JWT_KEY_FILE }} --username ${{ secrets.SF_USERNAME }} --instance-url ${{ secrets.SF_SERVER_URL }} --alias ${{ vars.SF_ORG_ALIAS }} --set-default
+          sf org list --all
           rm ${{ secrets.JWT_KEY_FILE }}
       - name: Validate Deployment
         run: sf project deploy validate --source-dir ${{ vars.SF_SOURCE_DIR }} --target-org ${{ vars.SF_ORG_ALIAS }} --wait ${{ vars.SF_WAIT_TIME }} --test-level RunLocalTests
@@ -37,6 +38,7 @@ jobs:
         run: |
           echo "${{ secrets.SF_JWT_KEY }}" >${{ secrets.JWT_KEY_FILE }}
           sf org login jwt --client-id ${{ secrets.SF_CONSUMER_KEY }} --jwt-key-file ${{ secrets.JWT_KEY_FILE }} --username ${{ secrets.SF_USERNAME }} --instance-url ${{ secrets.SF_SERVER_URL }} --alias ${{ vars.SF_ORG_ALIAS }} --set-default-dev-hub
+          sf org list --all
           rm ${{ secrets.JWT_KEY_FILE }}
       - name: Deploy to Production
         run: sf project deploy start --source-dir ${{ vars.SF_SOURCE_DIR }} --target-org ${{ vars.SF_ORG_ALIAS }} --wait ${{ vars.SF_WAIT_TIME }}
