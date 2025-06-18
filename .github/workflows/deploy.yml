@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
       - name: Install uuid number generator
-        run: apt install --yes uuid-runtime
+        run: sudo apt install --yes uuid-runtime
       - name: Install Salesforce CLI
         run: npm install @salesforce/cli --global
       - name: Authenticate to Salesforce (JWT)
