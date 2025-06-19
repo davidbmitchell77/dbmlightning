@@ -32,6 +32,8 @@ jobs:
       - name: uuid
         run: echo "uuid `uuidgen --random`"
       - name: color
-        run: 'echo "You chose the color ${{ github.event.inputs.color }}."'
+        run: echo "You chose the color ${{ github.event.inputs.color }}."
       - name: neofetch
-        run: neofetch
+        run: |
+          sudo apt-get install --yes neofetch
+          neofetch
