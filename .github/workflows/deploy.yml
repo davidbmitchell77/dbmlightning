@@ -28,7 +28,7 @@ jobs:
   deploy-to-production:
     needs: validate-deployment
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' || github.event_name = 'pull_request') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'))
+    if: ((github.event_name == 'push' || github.event_name == 'pull_request') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'))
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
