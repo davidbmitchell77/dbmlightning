@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: my-steps
-        run:
+        run: |
           echo "Hello World!  The current date / time is $(date)."
           echo "uuid: `uuidgen --random`"
