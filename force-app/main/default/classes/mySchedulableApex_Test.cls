@@ -12,6 +12,7 @@ private class mySchedulableApex_Test
     {
         Campaign c = new Campaign();
         c.Name = 'Test Campaign 1';
+        c.Description = 'This is a test marketing capaign.';
         c.StartDate = Date.newInstance(2021, 01, 01);
         c.EndDate = c.StartDate.addYears(1);
         c.IsActive = true;
@@ -35,7 +36,7 @@ private class mySchedulableApex_Test
         String chron = '0 0 23 * * ?';
         Id scheduleId = System.schedule('demo1 Test 1', chron, new mySchedulableApex());
         test.stopTest();
-        
+
         System.assertNotEquals(null, scheduleId);
     }
 }
