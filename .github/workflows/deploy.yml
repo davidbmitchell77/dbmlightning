@@ -24,7 +24,7 @@ jobs:
           sf org list --all
           rm ${{ secrets.JWT_KEY_FILE }}
       - name: Validate Deployment
-        run: sf project deploy validate --source-dir ${{ vars.SF_SOURCE_DIR }} --target-org ${{ vars.SF_ORG_ALIAS }} --wait ${{ vars.SF_WAIT_TIME }} --test-level RunLocalTests
+        run: # sf project deploy validate --source-dir ${{ vars.SF_SOURCE_DIR }} --target-org ${{ vars.SF_ORG_ALIAS }} --wait ${{ vars.SF_WAIT_TIME }} --test-level RunLocalTests
   deploy-to-production:
     needs: validate-deployment
     runs-on: ubuntu-latest
@@ -41,4 +41,4 @@ jobs:
           sf org list --all
           rm ${{ secrets.JWT_KEY_FILE }}
       - name: Deploy to Production
-        run: sf project deploy start --source-dir ${{ vars.SF_SOURCE_DIR }} --target-org ${{ vars.SF_ORG_ALIAS }} --wait ${{ vars.SF_WAIT_TIME }}
+        run: # sf project deploy start --source-dir ${{ vars.SF_SOURCE_DIR }} --target-org ${{ vars.SF_ORG_ALIAS }} --wait ${{ vars.SF_WAIT_TIME }}
