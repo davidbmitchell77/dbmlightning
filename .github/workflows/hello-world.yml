@@ -9,6 +9,7 @@ name: hello-world
         description: Pick a color
         type: choice
         options:
+          - ''
           - red
           - orange
           - yellow
@@ -36,6 +37,5 @@ jobs:
       - name: neofetch
         if: ${{ github.event.inputs.details == 'true' }}
         run: |
-          echo "${{ github.event.inputs.details }}"
           sudo apt-get install --yes neofetch
           neofetch
