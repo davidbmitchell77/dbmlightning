@@ -34,7 +34,7 @@ jobs:
       - name: color
         run: echo "You chose the color ${{ github.event.inputs.color }}."
       - name: neofetch
-        if: ${{ github.event.inputs.details != true }}
+        if: ${{ github.event.inputs.details == 'true' }}
         run: |
           echo "${{ github.event.inputs.details }}"
           sudo apt-get install --yes neofetch
