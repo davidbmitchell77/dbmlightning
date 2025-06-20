@@ -17,7 +17,6 @@ jobs:
         run: npm install @salesforce/cli --global
       - name: Authenticate to Salesforce (JWT)
         run: |
-          echo "${{ github.ref }}"
           echo "${{ secrets.SF_JWT_KEY }}" >${{ secrets.JWT_KEY_FILE }}
           sf org login jwt --client-id ${{ secrets.SF_CONSUMER_KEY }} --jwt-key-file ${{ secrets.JWT_KEY_FILE }} --username ${{ secrets.SF_USERNAME }} --instance-url ${{ secrets.SF_SERVER_URL }} --alias ${{ vars.SF_ORG_ALIAS }} --set-default
           rm ${{ secrets.JWT_KEY_FILE }}
