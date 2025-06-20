@@ -38,7 +38,7 @@ private class Account_Trigger_Test {
         );
 
         System.debug(LoggingLevel.INFO, 'Account_Trigger_Test.TestMethod02: Test.startTest()');
- 
+
         Test.startTest();
         insert a;
         a.Name = null;
@@ -70,7 +70,7 @@ private class Account_Trigger_Test {
         System.assertEquals(0, [SELECT Id, Name FROM Account].size());
         undelete [SELECT Id FROM Account WHERE IsDeleted = true ALL ROWS];
         Test.stopTest();
- 
+
         System.debug(LoggingLevel.INFO, 'Account_Trigger_Test.TestMethod03: Test.stopTest()');
         System.assertEquals(1, [SELECT Id, Name FROM Account].size());
     }
@@ -92,11 +92,12 @@ private class Account_Trigger_Test {
         Test.startTest();
         insert accounts;
         List<Contact> contacts = new List<Contact>();
+        Integer i = 0;
         for (Account a : accounts) {
             String uuid = SYS_UTILS.uuid();
             Contact c = new Contact(
                 FirstName = uuid,
-                LastName = 'Account_Trigger_Test',
+                LastName = 'Account_Trigger_Test ' + i++,
                 Phone = '(444) 444-4444',
                 Email = uuid + '@AccountTriggerTest.com',
                 AccountId = a.Id

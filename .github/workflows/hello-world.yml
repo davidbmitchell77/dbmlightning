@@ -1,11 +1,41 @@
----
 name: hello-world
-'on': workflow_dispatch
+'on':
+  workflow_dispatch:
+    inputs:
+      message:
+        description: Type a message here
+        required: true
+      color:
+        description: Pick a color
+        type: choice
+        options:
+          - ''
+          - red
+          - orange
+          - yellow
+          - green
+          - blue
+          - indigo
+          - violet
+        default: ''
+        required: true
+      details:
+        description: Show system details?
+        type: boolean
+        required: false
+        default: false
 jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: my-steps
+      - name: hello!
+        run: echo "Hello World!  The current date / time is $(date)."
+      - name: uuid
+        run: echo "uuid `uuidgen --random`"
+      - name: color
+        run: echo "You chose the color ${{ github.event.inputs.color }}."
+      - name: neofetch
+        if: ${{ github.event.inputs.details == 'true' }}
         run: |
-          echo "Hello World!  The current date / time is $(date)."
-          echo "uuid: `uuidgen --random`"
+          sudo apt-get install --yes neofetch
+          neofetch
