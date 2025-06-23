@@ -17,6 +17,7 @@ name: hello-world
           - blue
           - indigo
           - violet
+          - purple
         default: ''
         required: true
       details:
