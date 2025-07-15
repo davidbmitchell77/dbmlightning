@@ -39,4 +39,4 @@ jobs:
           rm "${{ secrets.JWT_KEY_FILE }}"
           sf org list --all
       - name: Deploy to Production
-        run: sf project deploy start --source-dir ${{ vars.SF_SOURCE_DIR }} --target-org ${{ vars.SF_ORG_ALIAS }} --wait ${{ vars.SF_WAIT_TIME }}
+        run: sf project deploy start --source-dir ${{ vars.SF_SOURCE_DIR }} --target-org ${{ vars.SF_ORG_ALIAS }} --wait ${{ vars.SF_WAIT_TIME }} --ignore-conflicts
