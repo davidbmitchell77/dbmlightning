@@ -113,10 +113,10 @@ public with sharing class Opportunity_Trigger_Handler {
     private Boolean isNewOpportunity(Opportunity o) {
         Boolean result = false;
         switch on o.StageName {
-            when 'Needs Analysis'    { result = true; }
-            when 'Prospecting'       { result = true; }
-            when 'Qualification'     { result = true; }
             when 'Value Proposition' { result = true; }
+            when 'Needs Analysis'    { result = true; }
+            when 'Qualification'     { result = true; }
+            when 'Prospecting'       { result = true; }
         }
         return result;
     }
