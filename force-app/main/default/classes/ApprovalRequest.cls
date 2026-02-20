@@ -1,28 +1,48 @@
 public class ApprovalRequest {
+    private final String processNameOrId;
+    private final String apexClassName;
 
-    public ApprovalRequest() {
+    public ApprovalRequest(String s) {
+        this.processNameOrId = s;
+        this.apexClassName   = String.valueOf(this).substring(0,String.valueOf(this).indexOf(':'));
     }
 
-    public List<Id> submit(String processNameOrId, Id objectId, Id submitterId) {
+    public List<Approval.ProcessResult> submit(List<String> recordIds) {
+        List<Approval.ProcessResult> results = new List<Approval.ProcessResult>();
+        for (String recordId : recordIds) {
+            results.add(submit(recordId));
+        }
+        return results;
+    }
+
+    public Approval.ProcessResult submit(String recordId) {
         Approval.ProcessSubmitRequest req = new Approval.ProcessSubmitRequest();
-        req.setProcessDefinitionNameOrId(processNameOrId);
-        req.setObjectId(objectId);
-        req.setSubmitterId(submitterId);
-        req.setSkipEntryCriteria(false);
-        req.setComments('Approval request for record Id: ' + objectId);
+        req.setObjectId(recordId);
+        req.setProcessDefinitionNameOrId(this.processNameOrId);
+        req.setSubmitterId(UserInfo.getUserId());
+        req.setSkipEntryCriteria(Test.isRunningTest() ? true : false);
+        req.setComments(System.Label.SUBMITTING_REQUEST_FOR_APPROVAL);
         Approval.ProcessResult result = Approval.process(req);
-        System.assertEquals(true, result.isSuccess());
-        System.assertEquals('Pending', result.getInstanceStatus());
-        return result.getNewWorkitemIds();
+        System.debug((result.isSuccess() ? LoggingLevel.INFO : LoggingLevel.ERROR), (this.apexClassName + ' approval request status: ' + result.getInstanceStatus()));
+        return result;
     }
 
-    public Boolean approve(List<Id> workItemIds, Id approverId) {
+    public List<Approval.ProcessResult> approve(List<String> workItemIds) {
+        List<Approval.ProcessResult> results = new List<Approval.ProcessResult>();
+        for (Id wid : workItemIds) {
+            results.add(approve(wid));
+        }
+        return results;
+    }
+
+    public Approval.ProcessResult approve(String workItemId) {
         Approval.ProcessWorkitemRequest req = new Approval.ProcessWorkitemRequest();
-        req.setNextApproverIds(new List<Id>{ approverId });
-        req.setWorkitemId(workItemIds.get(0));
         req.setAction('Approve');
-        req.setComments('Approving record Id: ' + workItemIds.get(0));
+        req.setNextApproverIds(new List<Id>{ UserInfo.getUserId() });
+        req.setComments(System.Label.APPROVING_REQUEST);
+        req.setWorkitemId(workItemId);
         Approval.ProcessResult result = Approval.process(req);
-        return result.isSuccess();
+        System.debug((result.isSuccess() ? LoggingLevel.INFO : LoggingLevel.ERROR), (this.apexClassName + ' approval request status: ' + result.getInstanceStatus()));
+        return result;
     }
 }

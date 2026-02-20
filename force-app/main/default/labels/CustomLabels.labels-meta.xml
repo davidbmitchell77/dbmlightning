@@ -22,6 +22,13 @@
         <value>Account record data is not valid.</value>
     </labels>
     <labels>
+        <fullName>APPROVING_REQUEST</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>APPROVING_REQUEST</shortDescription>
+        <value>Approving request.</value>
+    </labels>
+    <labels>
         <fullName>CAMPAIGN_DESCRIPTION_IS_REQUIRED</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -78,6 +85,13 @@
         <value>Case subject is required.</value>
     </labels>
     <labels>
+        <fullName>CASE_SUBJECT_MUST_NOT_BE_BLANK</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CASE_SUBJECT_MUST_NOT_BE_BLANK</shortDescription>
+        <value>Case subject must not be blank.</value>
+    </labels>
+    <labels>
         <fullName>CONTACT_LAST_NAME_IS_REQUIRED</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -127,6 +141,13 @@
         <value>Custom Object B record data is not valid.</value>
     </labels>
     <labels>
+        <fullName>ERROR_UPDATING_ACCOUNT_RECORD</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ERROR_UPDATING_ACCOUNT_RECORD</shortDescription>
+        <value>Error updating account record.</value>
+    </labels>
+    <labels>
         <fullName>LEAD_LAST_NAME_IS_REQUIRED</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -139,6 +160,20 @@
         <protected>false</protected>
         <shortDescription>Lead record data is not valid.</shortDescription>
         <value>Lead record data is not valid.</value>
+    </labels>
+    <labels>
+        <fullName>OPPORTUNITY_HAS_BEEN_ASSIGNED_TO_YOU</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OPPORTUNITY_HAS_BEEN_ASSIGNED_TO_YOU</shortDescription>
+        <value>A new opportunity has been assigned to you.</value>
+    </labels>
+    <labels>
+        <fullName>OPPORTUNITY_HAS_BEEN_ASSIGNED_TO_YOUR_ACCOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OPPORTUNITY_HAS_BEEN_ASSIGNED_TO_YOUR_ACCOUNT</shortDescription>
+        <value>An opportunity has been assigned to your account,</value>
     </labels>
     <labels>
         <fullName>OPPORTUNITY_LINE_ITEM_QUANTITY_IS_REQUIRED</fullName>
@@ -181,6 +216,20 @@
         <protected>false</protected>
         <shortDescription>Quote item unit price is required.</shortDescription>
         <value>Quote item unit price is required.</value>
+    </labels>
+    <labels>
+        <fullName>SUBMITTING_REQUEST_FOR_APPROVAL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SUBMITTING_REQUEST_FOR_APPROVAL</shortDescription>
+        <value>Submitting request for approval.</value>
+    </labels>
+    <labels>
+        <fullName>USER_NOT_AUTHORIZED_TO_DELETE_OPPORTUNITY_RECORDS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>USER_NOT_AUTHORIZED_TO_DELETE_OPPORTUNITY_RECORDS</shortDescription>
+        <value>User is not authorized to delete opportunity records.</value>
     </labels>
     <labels>
         <fullName>foobar</fullName>

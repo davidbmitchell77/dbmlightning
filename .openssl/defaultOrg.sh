@@ -1,4 +1,5 @@
 #!/bin/bash
+working_dir="$(pwd)"
 ssldir=./.openssl
 clientid=3MVG9LBJLApeX_PBe5D.GL.rVgr1zYTbEmTFhLxf2k1kBbzObpkkEUFR2G.RyvCajbQ_qKtDEwSnqjAZO87Jt
 jwtkeyfile=server.key
@@ -8,5 +9,5 @@ url=https://login.salesforce.com
 cd $ssldir
 sf org:logout --all --no-prompt 1>/dev/null 2>&1
 sf org:login:jwt --jwt-key-file $jwtkeyfile --client-id $clientid --username $username --alias $alias --instance-url $url --set-default-dev-hub --set-default
-sf org list --all
-cd ..
+sf org:list --all
+cd "$working_dir"
