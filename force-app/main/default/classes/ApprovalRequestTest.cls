@@ -6,7 +6,7 @@ private class ApprovalRequestTest {
 
     @isTest
     private static void test01_submit() {
-        ProcessDefinition pd = [SELECT Id, DeveloperName FROM ProcessDefinition WHERE Name = ''];
+        ProcessDefinition pd = [SELECT Id, DeveloperName FROM ProcessDefinition WHERE Type = 'Quote' AND State = 'Active' LIMIT 1];
         Account a = new Account(
             Name = 'Test Account #1',
             AnnualRevenue = 100000.00
@@ -23,7 +23,7 @@ private class ApprovalRequestTest {
 
     @isTest
     private static void test02_approve() {
-        ProcessDefinition pd = [SELECT Id, DeveloperName FROM ProcessDefinition WHERE Name = ''];
+        ProcessDefinition pd = [SELECT Id, DeveloperName FROM ProcessDefinition WHERE Type = 'Quote' AND State = 'Active' LIMIT 1];
         Account a = new Account(
             Name = 'Test Account #2',
             AnnualRevenue = 100000.00
