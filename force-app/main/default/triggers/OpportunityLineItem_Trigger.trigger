@@ -46,7 +46,7 @@ trigger OpportunityLineItem_Trigger on OpportunityLineItem (before insert, befor
 
     if (runTriggerHandler == true) {
         try {
-            OpportunityLineItem_Trigger_Handler handler = new OpportunityLineItem_Trigger_Handler(Trigger.operationType);
+            OpportunityLineItemHandler_Cognizant handler = new OpportunityLineItemHandler_Cognizant(Trigger.operationType);
             if (handler.isValid(Trigger.new)) {
                 handler.run(Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap);
             }

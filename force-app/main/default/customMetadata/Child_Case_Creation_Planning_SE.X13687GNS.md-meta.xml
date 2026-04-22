@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>13687GNS</label>
+    <protected>false</protected>
+    <values>
+        <field>Case_Type__c</field>
+        <value xsi:type="xsd:string">Planning: Schedule Adjustments</value>
+    </values>
+    <values>
+        <field>Contact1__c</field>
+        <value xsi:type="xsd:string">Male sivakanth</value>
+    </values>
+    <values>
+        <field>Contact2__c</field>
+        <value xsi:type="xsd:string">Satish kumar</value>
+    </values>
+    <values>
+        <field>Contact3__c</field>
+        <value xsi:type="xsd:string">Mohammad Akram Shahkomeni</value>
+    </values>
+    <values>
+        <field>Location_Plant_Information__c</field>
+        <value xsi:type="xsd:string">75</value>
+    </values>
+    <values>
+        <field>Product__c</field>
+        <value xsi:type="xsd:string">13687GNS</value>
+    </values>
+    <values>
+        <field>Record_Type__c</field>
+        <value xsi:type="xsd:string">Service Escalation</value>
+    </values>
+</CustomMetadata>

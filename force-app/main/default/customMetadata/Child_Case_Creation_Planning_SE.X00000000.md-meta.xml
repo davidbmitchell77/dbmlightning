@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>00000000</label>
+    <protected>false</protected>
+    <values>
+        <field>Case_Type__c</field>
+        <value xsi:type="xsd:string">Planning: CTP Lite Failure</value>
+    </values>
+    <values>
+        <field>Contact1__c</field>
+        <value xsi:type="xsd:string">David Mitchel</value>
+    </values>
+    <values>
+        <field>Contact2__c</field>
+        <value xsi:type="xsd:string">Jimmy Page</value>
+    </values>
+    <values>
+        <field>Contact3__c</field>
+        <value xsi:type="xsd:string">Ace Frehley</value>
+    </values>
+    <values>
+        <field>Location_Plant_Information__c</field>
+        <value xsi:type="xsd:string">75</value>
+    </values>
+    <values>
+        <field>Product__c</field>
+        <value xsi:type="xsd:string">00000000</value>
+    </values>
+    <values>
+        <field>Record_Type__c</field>
+        <value xsi:type="xsd:string">Customer Complaints</value>
+    </values>
+</CustomMetadata>

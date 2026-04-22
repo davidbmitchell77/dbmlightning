@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <businessHours>US</businessHours>
+    <entryStartDateField>Case.SLA_start_date__c</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <milestones>
+        <businessHours>US</businessHours>
+        <milestoneCriteriaFormula>AND(
+ OR(
+  ISPICKVAL(Status, &quot;Case Accepted&quot;),
+ISPICKVAL(Status, &quot;Investigation underway&quot;),
+ISPICKVAL(Status, &quot;Additional Info Needed&quot;),
+ISPICKVAL(Status, &quot;Final Review&quot;)
+),
+(ISBLANK(ParentId)),
+  $RecordType.DeveloperName = &quot;Service_Escalation&quot;
+)</milestoneCriteriaFormula>
+        <milestoneName>Service Escalations SLA</milestoneName>
+        <minutesToComplete>1440</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>X90_PCT8</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>-144</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>X100_PCT8</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>X75_PCT8</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>-360</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>US</businessHours>
+        <milestoneCriteriaFormula>AND(
+OR(
+ISPICKVAL(Status, &quot;Case Accepted&quot;),
+ISPICKVAL(Status, &quot;Investigation underway&quot;),
+ISPICKVAL(Status, &quot;Additional Info Needed&quot;),
+ISPICKVAL(Status, &quot;Final Review&quot;)
+),
+NOT(ISBLANK(ParentId)),
+$RecordType.DeveloperName = &quot;Service_Escalation&quot;
+)</milestoneCriteriaFormula>
+        <milestoneName>Service Escalations SLA</milestoneName>
+        <minutesToComplete>1080</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>X100_PCT9</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>X75_PCT9</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>-270</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>X90_PCT9</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>-108</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+</EntitlementProcess>

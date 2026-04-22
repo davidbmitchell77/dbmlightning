@@ -1,9 +1,11 @@
 public with sharing class Contact_Trigger_Handler {
 
-    private TriggerOperation operationType;
+    private final TriggerOperation operationType;
+    private final String className;
 
     public Contact_Trigger_Handler(TriggerOperation to) {
         this.operationType = to;
+        this.className = 'Contact_Trigger_Handler';
     }
 
     public Boolean isValid(List<Contact> contacts) {
@@ -42,15 +44,18 @@ public with sharing class Contact_Trigger_Handler {
             when AFTER_INSERT {
                 updateParentAccountDescriptions(oldContacts, newContacts, oldMap, newMap);
                 summarizeParentAccountFields(oldContacts, newContacts, oldMap, newMap);
+                updateParentAccounts(newContacts);
             }
             when AFTER_UPDATE {
                 updateParentAccountDescriptions(oldContacts, newContacts, oldMap, newMap);
             }
             when AFTER_DELETE {
                 summarizeParentAccountFields(oldContacts, newContacts, oldMap, newMap);
+                updateParentAccounts(oldContacts);
             }
             when AFTER_UNDELETE {
                 summarizeParentAccountFields(oldContacts, newContacts, oldMap, newMap);
+                updateParentAccounts(newContacts);
             }
         }
         updateProcessedRecordIds(this.operationType, oldContacts, newContacts);
@@ -105,6 +110,30 @@ public with sharing class Contact_Trigger_Handler {
 
         if (!accountsMap.isEmpty()) {
             DB_UTILS.upd(accountsMap.values());
+        }
+    }
+
+    private void updateParentAccounts(List<Contact> contacts) {
+        List<Account> accounts = new List<Account>();
+
+        for (Aggregateresult agr : [SELECT AccountId, COUNT(Id) contacts
+                                      FROM Contact
+                                     WHERE AccountId IN :accountIds(contacts)
+                                  GROUP BY AccountId
+        ]) {
+            Account a = new Account(Id=(Id)agr.get('AccountId'), TotalContacts__c=(Integer)agr.get('contacts'));
+            accounts.add(a);
+        }
+
+        if (!accounts.isEmpty()) {
+            for (Database.SaveResult sr : Database.update(accounts, false)) {
+                if (!sr.isSuccess()) {
+                    for (Database.Error e : sr.getErrors()) {
+                        System.debug(LoggingLevel.ERROR, (this.className + ': ' + e.getStatusCode() + '|' + e.getMessage()));
+                    }
+                    throw (new DMLException(System.Label.ERROR_UPDATING_ACCOUNT_RECORD));
+                }
+            }
         }
     }
 

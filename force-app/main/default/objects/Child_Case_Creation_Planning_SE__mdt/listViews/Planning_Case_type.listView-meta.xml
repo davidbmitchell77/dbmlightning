@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Planning_Case_type</fullName>
+    <columns>MasterLabel</columns>
+    <columns>Case_Type__c</columns>
+    <columns>Location_Plant_Information__c</columns>
+    <columns>Product__c</columns>
+    <columns>Contact1__c</columns>
+    <columns>Contact2__c</columns>
+    <columns>Contact3__c</columns>
+    <columns>Record_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Planning Case type</label>
+    <language>en_US</language>
+</ListView>
