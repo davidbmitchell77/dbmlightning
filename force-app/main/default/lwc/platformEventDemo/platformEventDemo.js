@@ -1,9 +1,8 @@
-import { LightningElement           } from 'lwc';
-import { subscribe, unsubscribe     } from 'lightning/empApi';
-import { onError                    } from 'lightning/empApi';
-import { hash, parse                } from 'c/utils';
-import { stringify, stringifyPretty } from 'c/utils';
-import { log, showToast             } from 'c/utils';
+import { LightningElement                } from 'lwc';
+import { subscribe, unsubscribe, onError } from 'lightning/empApi';
+import { hash, parse                     } from 'c/utils';
+import { stringify, stringifyPretty      } from 'c/utils';
+import { log, showToast                  } from 'c/utils';
 
 const PLATFORM_EVENT_CHANNELS = [
     { label: 'ABC News',                 value: '/event/ABCNews__e'               },
